@@ -116,6 +116,8 @@ function shell(commands, options) {
 shell.task = function (commands, options) {
   return function (done) {
     runCommands(normalizeCommands(commands), normalizeOptions(options), null, done)
+    if (options && options.continue)
+      done()
   }
 }
 
